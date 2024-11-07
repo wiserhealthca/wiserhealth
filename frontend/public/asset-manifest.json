@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.js": "/static/js/main.2ddf47cd.js",
+    "static/js/585.a8772660.js": "/static/js/585.a8772660.js",
+    "static/media/nutri.avif": "/static/media/nutri.74d4dbf85984b478a0af.avif",
+    "static/media/banner_img.jpg": "/static/media/banner_img.2d5ba9f3d00b79ecc8a4.jpg",
+    "static/media/wiser_logo.jpg": "/static/media/wiser_logo.9ba0ec18dbe5445bcb05.jpg",
+    "favicon.ico": "/favicon.ico",
+    "static/media/view.png": "/static/media/view.ff92b64fd1c718126b35.png",
+    "static/media/eye.png": "/static/media/eye.0a0992bb8e2d279ddcfe.png",
+    "static/media/google_icon.png": "/static/media/google_icon.8518de12373ed3429310.png",
+    "static/media/facebook_icon.png": "/static/media/facebook_icon.cd515d1359945bcbd81f.png",
+    "index.html": "/index.html",
+    "favicon-32.png": "/favicon-32.png",
+    "favicon-16.png": "/favicon-16.png",
+    "serve.json": "/serve.json",
+    "manifest.json": "/manifest.json",
+    "main.2ddf47cd.js.map": "/static/js/main.2ddf47cd.js.map",
+    "585.a8772660.js.map": "/static/js/585.a8772660.js.map"
+  },
+  "entrypoints": [
+    "static/js/585.a8772660.js",
+    "static/js/main.2ddf47cd.js"
+  ]
+}
