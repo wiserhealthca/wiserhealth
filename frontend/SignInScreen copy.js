@@ -43,7 +43,11 @@ export default function SignInScreen({ navigation }) {
 
       <View style={styles.footer}>
         <Text>Don't have an account?</Text>
+<<<<<<< HEAD
         <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+=======
+        <TouchableOpacity onPress={() => navigation.navigate("SignUpScreen")}>
+>>>>>>> 29348655 (add types2 dashboard)
           <Text style={styles.signUpText}> Sign Up</Text>
         </TouchableOpacity>
       </View>

@@ -1,0 +1,291 @@
+[
+    {
+      "category": "Nutritional Evaluation",
+      "subheading": "Nutrient Deficiency Quiz",
+      "categories": [
+        {
+          "categoryType": "(General Health and Energy Levels)",
+          "questions": [
+            {
+              "text": "Do you often feel tired or fatigued, even after a good night’s sleep?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            },
+            {
+              "text": "Do you experience frequent headaches or migraines?",
+              "options": ["Yes, often", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you have difficulty concentrating or experience brain fog?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            },
+            {
+              "text": "Do you feel short of breath or have a rapid heartbeat, especially during mild physical activity?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            }
+          ]
+        },
+        {
+          "categoryType": "(Skin, Hair and Nails)",
+          "questions": [
+            {
+              "text": "Is your skin often dry, flaky, or prone to rashes?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            },
+            {
+              "text": "Do you experience hair loss or thinning hair?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            },
+            {
+              "text": "Are your nails brittle, weak, or do they have white spots?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            },
+            {
+              "text": "Do you have frequent acne or skin breakouts?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            }
+          ]
+        },
+        {
+          "categoryType": "(Muscles and JOints)",
+          "questions": [
+            {
+              "text": "Do you experience muscle cramps or spasms, especially at night?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you feel joint pain or stiffness?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you have difficulty recovering after exercise, with prolonged muscle soreness?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
+            }
+          ]
+        },
+        {
+          "categoryType": "(Digestive Health)",
+          "questions": [
+            {
+              "text": "Do you experience frequent bloating, gas or digestive discomfort?",
+              "options": ["Yes, often", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you suffer from constipation or irregular bowel movements?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you have a reduced appetite or feel full quickly?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            }
+           
+          ]
+        },
+        {
+          "categoryType": "(Immunity and Healing)",
+          "questions": [
+            {
+              "text": "Do you get cold or infections more often than others?",
+              "options": ["Yes, often", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you have slow wound healing or bruising easily?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you experience frequent mouth sores or bleeding gums?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            }
+           
+          ]
+        },
+        {
+          "categoryType": "(Dietary habits)",
+          "questions": [
+            {
+              "text": "How often do you consume leafy green vegetables?",
+              "options": ["Daily", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "How often do you eat fish or other source of omega-3 fatty acids?",
+              "options": ["Atleast twice a week", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you consume dairy products or other calcium-rich foods regularly?",
+              "options": ["Yes, frequently", "Occasionally", "Rarely or never"]
+            },
+            {
+              "text": "Do you take any dietary supplements?",
+              "options": ["Yes, regularly", "Occasionally", "Rarely or never"]
+            }
+           
+          ]
+        }
+      ]
+    },
+    {
+      "category": "familyHistory",
+      "subheading": "Family Info",
+      "categories": [
+        {
+          "categoryType": "familyHistory",
+          "questions": [
+            {
+              "id": 1,
+              "text": "Gender",
+              "type": "dropdown",
+              "options": ["Male", "Female", "Other"]
+            },
+            {
+              "id": 2,
+              "question": "Age",
+              "type": "number",
+              "placeholder": "Enter age in years"
+            },
+            {
+              "id": 3,
+              "text": "Weight",
+              "type": "number",
+              "unit": "kg",
+              "placeholder": "Enter weight"
+            },
+            {
+              "id": 4,
+              "text": "Height",
+              "type": "number",
+              "unit": "cm",
+              "placeholder": "Enter height"
+            },
+            {
+              "id": 5,
+              "text": "Waist Circumference",
+              "type": "number",
+              "unit": "cm",
+              "placeholder": "Enter waist circumference"
+            }
+            
+      ]
+      }
+    ]
+  }, 
+  {
+    "category": "Diabetes Risk Assessment",
+    "subheading": "Risk Factors for Developing Diabetes",
+    "categories": [
+      {
+        "categoryType": "Physical Activity and Diet",
+        "questions": [
+          {
+            "text": "Do you usually do some physical activity such as brisk walking for at least 30 minutes each day? This activity can be done while at work or at home.",
+            "options": [
+              { "answer": "Yes", "score": 0 },
+              { "answer": "No", "score": 1 }
+            ],
+            "answered": false 
+          },
+          {
+            "text": "How often do you eat vegetables or fruits?",
+            "options": [
+              { "answer": "Every day", "score": 0 },
+              { "answer": "Not every day", "score": 1 }
+            ],
+            "answered": false 
+          }
+        ]
+      },
+      {
+        "categoryType": "Medical History",
+        "questions": [
+          {
+            "text": "Have you ever been told by a doctor or nurse that you have high blood pressure OR have you ever taken high blood pressure pills?",
+            "options": [
+              { "answer": "Yes", "score": 4 },
+              { "answer": "No or don’t know", "score": 0 }
+            ],
+            "answered": false 
+          },
+          {
+            "text": "Have you ever been found to have a high blood sugar either from a blood test, during an illness, or during pregnancy?",
+            "options": [
+              { "answer": "Yes", "score": 14 },
+              { "answer": "No or don’t know", "score": 0 }
+            ],
+            "answered": false 
+          },
+          {
+            "text": "Have you ever given birth to a large baby weighing 9 pounds (4.1 kg) or more?",
+            "options": [
+              { "answer": "Yes", "score": 1 },
+              { "answer": "No, don’t know, or not applicable", "score": 0 }
+            ],
+            "answered": false 
+          }
+        ]
+      },
+      {
+        "categoryType": "Family History",
+        "questions": [
+          {
+            "text": "Have any of your blood relatives ever been diagnosed with diabetes? (Check ALL that apply)",
+            "options": [
+              { "answer": "Mother", "score": 2 },
+              { "answer": "Father", "score": 2 },
+              { "answer": "Brothers/Sisters", "score": 2 },
+              { "answer": "Children", "score": 2 },
+              { "answer": "Other", "score": 2 },
+              { "answer": "No/don’t know", "score": 0 }
+            ],
+            "answered": false ,
+            "note": "Your combined score cannot be more than 8 points for this question."
+          }
+        ]
+      },
+      {
+        "categoryType": "Ethnic Background",
+        "questions": [
+          {
+            "text": "Please check off which of the following ethnic groups your biological (blood) parents belong to:",
+            "options": [
+              { "answer": "White (Caucasian)", "score": 0 },
+              { "answer": "Black (Afro-Caribbean)", "score": 5 },
+              { "answer": "East Asian", "score": 10 },
+              { "answer": "South Asian", "score": 11 },
+              { "answer": "Other non-white (Latin American, Arab, West Asian)", "score": 3 },
+              { "answer": "Aboriginal", "score": 3 }
+            ],
+            "answered": false ,
+            "note": "Do not add mother plus father scores together; choose only one score, the highest."
+          }
+        ]
+      },
+      {
+        "categoryType": "Education Level",
+        "questions": [
+          {
+            "text": "What is the highest level of education that you have completed?",
+            "options": [
+              { "answer": "Some high school or less", "score": 5 },
+              { "answer": "High school diploma", "score": 1 },
+              { "answer": "Some college or university", "score": 0 },
+              { "answer": "University or college degree", "score": 0 }
+            ],
+            "answered": false 
+          }
+        ]
+      }
+    ],
+    "scoring": {
+      "lowRisk": {
+        "range": [0, 20],
+        "message": "Your risk of having pre-diabetes or type 2 diabetes is fairly low, though it always pays to maintain a healthy lifestyle."
+      },
+      "moderateRisk": {
+        "range": [21, 32],
+        "message": "Your risk of having pre-diabetes or type 2 diabetes is moderate. You may wish to consult with a healthcare practitioner about your risk."
+      },
+      "highRisk": {
+        "range": [33, 100],
+        "message": "Your risk of having pre-diabetes or type 2 diabetes is high. You may wish to consult with a healthcare practitioner to discuss getting your blood sugar tested."
+      }
+    }
+  } 
+]
