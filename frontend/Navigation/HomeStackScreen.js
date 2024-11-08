@@ -11,11 +11,14 @@ import ReviewInitialInfo from "../Screens/ReviewInitialInfo";
 import CanRiskQuiz from "../Screens/CanRiskQuiz";
 import ResultsScreen from "../Screens/ResultsScreen";
 import CanRiskScoreScreen from "../Screens/CanRiskScoreScreen";
-import Home from '../Screens/HomeScreen';
+import HomeScreen from '../Screens/HomeScreen';
+
+
 const HomeStack = createStackNavigator();
 
 const HomeStackScreen = () => (
-  <HomeStack.Navigator initialRouteName="InitialEvaluation">
+  <HomeStack.Navigator initialRouteName="HomeScreen">
+     <HomeStack.Screen name="HomeScreen" component={HomeScreen} />
     <HomeStack.Screen name="InitialEvaluation" component={InitialEvaluationScreen} />
     <HomeStack.Screen name="NutritionDashboard" component={NutritionDashboard} />
     <HomeStack.Screen name="NutritionalEvaluationQuiz" component={NutritionalEvaluationQuiz} />
@@ -26,7 +29,6 @@ const HomeStackScreen = () => (
     <HomeStack.Screen name="CanRiskQuiz" component={CanRiskQuiz} />
      <HomeStack.Screen name="ResultsScreen" component={ResultsScreen} />
      <HomeStack.Screen name="CanRiskScoreScreen" component={CanRiskScoreScreen} />
-   <HomeStack.Screen name="Home" component={Home} />
     {/* Add more screens here if needed */}
   </HomeStack.Navigator>
 );

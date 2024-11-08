@@ -5,8 +5,8 @@ import { LinearGradient } from "expo-linear-gradient"; // Make sure to install t
 export default function SplashScreen({ navigation }) {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace("SignInScreen");
-    }, 5000);
+      navigation.navigate("SignInScreen");
+    }, 2000); //2sec simulation
     return () => clearTimeout(timer);
   }, [navigation]); // Added dependency for useEffect
 

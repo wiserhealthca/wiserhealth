@@ -6,7 +6,8 @@ import SignInScreen from './Screens/SignInScreen'; // Adjust your path as necess
 import MainAppStack from './Navigation/MainAppStack'; // Your main tab navigator
 import InitialEvaluationScreen from './Screens/InitialEvaluationScreen';
 import NutritionDashboard from "./Screens/NutritionDashboard";
-
+import SplashScreen from './Navigation/SplashScreen';
+import SignUpScreen from './Screens/SignUpScreen';
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -22,12 +23,16 @@ const App = () => {
             options={{ headerShown: false }} 
           />
         ) : (
+          <>
+          <Stack.Screen name="SplashScreen" component={SplashScreen}/>
           <Stack.Screen 
-            name="SignIn" 
+            name="SignInScreen" 
             options={{ headerShown: false }} 
           >
             {props => <SignInScreen {...props} setIsSignedIn={setIsSignedIn} />}
           </Stack.Screen>
+          <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
+          </>
         )}
       </Stack.Navigator>
       

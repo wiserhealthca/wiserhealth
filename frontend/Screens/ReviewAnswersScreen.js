@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
-import commonStyles from "./styles";
-import questionsData from "./questionsData.json"; // Import your questions data
+import commonStyles from "../styles";
+import questionsData from "../questionsData.json"; // Import your questions data
 
 const ReviewAnswersScreen = ({ route, navigation }) => {
   const { selectedOptions = {} } = route.params || {};

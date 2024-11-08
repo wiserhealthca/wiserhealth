@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RV Renting vs Owning Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+    }
+    input:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+      outline: none;
+    }
+    .calculator-container {
+      background: linear-gradient(135deg, #f0f4f7, #ffffff);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    button {
+      background: linear-gradient(135deg, #007BFF, #0056b3);
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      margin-top: 15px;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #0056b3, #003f7f);
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .result {
+      background-color: #f9f9f9;
+      padding: 20px;
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .result h2 {
+      color: #007BFF;
+    }
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      color: #007BFF;
+      margin-left: 5px;
+    }
+    .tooltip-text {
+      visibility: hidden;
+      width: 180px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      margin-left: -90px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .tooltip:hover .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-container">
+    <h2>RV Renting vs. Owning Cost Calculator</h2>
+    <p>Use this calculator to compare the costs of owning vs. renting an RV based on your travel plans.</p>
+
+    <form id="rvCalculator">
+      <h3>Your Travel Plans</h3>
+      <label for="trips">Number of Trips per Year:</label>
+      <input type="number" id="trips" placeholder="e.g. 2" required>
+
+      <label for="tripDuration">Average Trip Duration (in days):</label>
+      <input type="number" id="tripDuration" placeholder="e.g. 7" required>
+
+      <label for="rentalCost">Average Rental Cost per Day ($):</label>
+      <input type="number" id="rentalCost" placeholder="e.g. 150" value="150" required>
+
+      <h3>RV Ownership Costs</h3>
+      <label for="purchaseCost">Initial Purchase Cost of RV ($):</label>
+      <input type="number" id="purchaseCost" placeholder="e.g. 50000" required>
+
+      <label for="maintenance">Annual Maintenance Costs ($):</label>
+      <input type="number" id="maintenance" placeholder="e.g. 1500" value="1500" required>
+
+      <label for="insurance">Annual Insurance Costs ($):</label>
+      <input type="number" id="insurance" placeholder="e.g. 1200" value="1200" required>
+
+      <label for="storage">Annual Storage Costs ($) (Optional):</label>
+      <input type="number" id="storage" placeholder="e.g. 1000" value="1000">
+
+      <label for="depreciation">Depreciation Rate (Percentage, default 10%): 
+        <span class="tooltip">?
+            <span class="tooltip-text">This is how much value your RV loses annually. A typical depreciation rate is 10-15%.</span>
+        </span>
+      </label>
+      <input type="number" id="depreciation" placeholder="e.g. 10" value="10" required>
+
+      <button type="button" onclick="calculateCosts()">Calculate</button>
+    </form>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateCosts() {
+      const trips = parseFloat(document.getElementById('trips').value);
+      const tripDuration = parseFloat(document.getElementById('tripDuration').value);
+      const rentalCost = parseFloat(document.getElementById('rentalCost').value);
+      const purchaseCost = parseFloat(document.getElementById('purchaseCost').value);
+      const maintenance = parseFloat(document.getElementById('maintenance').value);
+      const insurance = parseFloat(document.getElementById('insurance').value);
+      const storage = parseFloat(document.getElementById('storage').value || 0);
+      const depreciationRate = parseFloat(document.getElementById('depreciation').value) / 100;
+
+      const rentingCost = trips * tripDuration * rentalCost;
+      const depreciation = purchaseCost * depreciationRate;
+      const owningCost = maintenance + insurance + storage + depreciation;
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <h2>Your Results</h2>
+        <p><strong>Annual Renting Cost:</strong> $${rentingCost.toFixed(2)}</p>
+        <p><strong>Annual Owning Cost:</strong> $${owningCost.toFixed(2)}</p>
+        ${rentingCost < owningCost ? 
+          '<p><strong>Renting</strong> is more cost-effective based on your inputs.</p>' : 
+          '<p><strong>Owning</strong> is more cost-effective based on your inputs.</p>'}
+      `;
+    }
+  </script>
+
+</body>
+</html>
+

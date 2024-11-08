@@ -44,7 +44,7 @@ export default function ForgotPasswordScreen({ navigation }) {
       </TouchableOpacity>
 
       {/* Back to Login */}
-      <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+      <TouchableOpacity onPress={() => navigation.navigate("SignInScreen")}>
         <Text style={commonStyles.linkText}>Back to Login</Text>
       </TouchableOpacity>
     </View>

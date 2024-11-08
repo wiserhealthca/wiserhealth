@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import commonStyles from "./styles"; // Import your common styles
-import questionsData from "./questionsData.json"; // Import your questions data
+import commonStyles from "../styles"; 
+import questionsData from "../questionsData.json"; 
 
 const ResultsScreen = ({ route, navigation }) => {
   const selectedOptions = route?.params?.selectedOptions || {};
@@ -60,8 +60,8 @@ const ResultsScreen = ({ route, navigation }) => {
   }
 
   return (
-    <ScrollView Style={commonStyles.container}>
-      <Text style={commonStyles.scoreText}>Your Score: {totalScore} / 100</Text>
+    <ScrollView contentContainerStyle={commonStyles.container}>
+      <Text style={commonStyles.scoreText}>Your Score: {totalScore}</Text>
       <Text style={commonStyles.scoreText}>
         Percentage: {Math.round(scorePercentage)}%
       </Text>
@@ -89,12 +89,12 @@ const ResultsScreen = ({ route, navigation }) => {
       >
         <Text style={commonStyles.buttonText}>Go to Home</Text>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={commonStyles.modernButton}
         onPress={() => navigation.navigate("BMIDisplay")}
       >
         <Text style={commonStyles.buttonText}>Calculate your BMI</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </ScrollView>
   );
 };

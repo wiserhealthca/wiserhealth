@@ -71,7 +71,7 @@ export default function SignInScreen({ navigation }) {
     // If no errors, proceed with sign-in
     if (Object.keys(errors).length === 0) {
       console.log("Sign In:", { email, password });
-      console.log("Form submitted successfully!");
+      // console.log("Form submitted successfully!");
       navigation.navigate("InitialEvaluationScreen");
     } else {
       console.log("Form has errors!", errors);
