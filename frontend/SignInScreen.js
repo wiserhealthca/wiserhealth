@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 
 export default function SignInScreen({ navigation }) {
   const [email, setEmail] = useState("");

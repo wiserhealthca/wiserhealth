@@ -1,62 +1,35 @@
 import React, { useState, useEffect, useRef } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  ScrollView,
-  Animated,
-} from "react-native";
+import { View, Text, TouchableOpacity, ScrollView, Animated } from "react-native";
 import commonStyles from "./styles";
 import questionsData from "./questionsData.json";
 
-const NutritionalEvaluationQuiz = ({ route, navigation }) => {
-  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(1);
+const CanRiskModuleTwo = ({ route, navigation }) => {
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(2);
   const [currentSubcategoryIndex, setCurrentSubcategoryIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState({});
   const [progress, setProgress] = useState(0);
   const animatedProgress = useRef(new Animated.Value(0)).current;
-
   const { editMode, questionIndex, answers } = route.params || {};
 
-// counting only each category's questions
+  // Function to get the total number of questions in the current category only
+  const getTotalQuestionsInCurrentCategory = () => {
+    let total = 0;
+    const currentCategory = questionsData[currentCategoryIndex];
+    if (currentCategory && currentCategory.categories) {
+      total = currentCategory.categories.reduce(
+        (sum, subcategory) => sum + subcategory.questions.length,
+        0
+      );
+    }
+    return total;
+  };
 
-const getTotalQuestions = () => {
-  const currentCategory = questionsData[currentCategoryIndex]; // Get the current category
-  let total = 0;
-
-  if (currentCategory && currentCategory.categories) {
-    currentCategory.categories.forEach((subcategory) => {
-      if (subcategory.questions) { // Check if questions exist in subcategory
-        total += subcategory.questions.length;
-      }
-    });
-  }
-
-  return total;
-};
-
-
-
-
+  // Function to get the number of questions answered in the current category
   const getAnsweredQuestions = () => {
     let answered = 0;
-    for (let i = 0; i < currentCategoryIndex; i++) {
-      if (questionsData[i].categories) {
-        questionsData[i].categories.forEach((subcategory) => {
-          if (subcategory.questions) {
-            answered += subcategory.questions.length;
-          }
-        });
-      }
-    }
-    if (questionsData[currentCategoryIndex]?.categories) {
-      for (let j = 0; j < currentSubcategoryIndex; j++) {
-        if (questionsData[currentCategoryIndex].categories[j]?.questions) {
-          answered +=
-            questionsData[currentCategoryIndex].categories[j].questions.length;
-        }
-      }
+    for (let j = 0; j < currentSubcategoryIndex; j++) {
+      answered += questionsData[currentCategoryIndex].categories[j].questions.length;
     }
     answered += currentQuestionIndex;
     return answered;
@@ -66,18 +39,20 @@ const getTotalQuestions = () => {
   useEffect(() => {
     if (editMode && answers) {
       setSelectedOptions(answers); // Preload existing answers
-      const questionsPerSubcategory =
-        questionsData[0]?.categories?.[0]?.questions?.length || 1; // Safeguard against undefined length
-      setCurrentQuestionIndex(questionIndex % questionsPerSubcategory);
+      setCurrentQuestionIndex(
+        questionIndex % questionsData[0].categories[0].questions.length
+      ); // Move to the right question
       setCurrentSubcategoryIndex(
-        Math.floor(questionIndex / questionsPerSubcategory)
+        Math.floor(
+          questionIndex / questionsData[0].categories[0].questions.length
+        )
       );
     }
   }, [editMode, answers, questionIndex]);
 
   // Update progress when current question changes
   useEffect(() => {
-    const totalQuestions = getTotalQuestions();
+    const totalQuestions = getTotalQuestionsInCurrentCategory();
     const answeredQuestions = getAnsweredQuestions();
     const newProgress = (answeredQuestions / totalQuestions) * 100;
     setProgress(newProgress);
@@ -104,28 +79,25 @@ const getTotalQuestions = () => {
   };
 
   useEffect(() => {
-    // Reset states if reset is true
     if (route.params?.reset) {
       setCurrentCategoryIndex(0);
       setCurrentSubcategoryIndex(0);
       setCurrentQuestionIndex(0);
       setSelectedOptions({});
       setProgress(0);
-      animatedProgress.setValue(0); // Reset animated progress
+      animatedProgress.setValue(0);
     }
   }, [route.params]);
 
-  // Handle moving to the next question or category
   const handleNextQuestion = () => {
     const currentCategory = questionsData[currentCategoryIndex];
-    const currentSubcategory =
-      currentCategory?.categories?.[currentSubcategoryIndex] || {};
-    const totalQuestions = currentSubcategory.questions?.length || 0;
+    const currentSubcategory = currentCategory.categories[currentSubcategoryIndex];
+    const totalQuestions = currentSubcategory.questions.length;
 
     if (currentQuestionIndex < totalQuestions - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      if (currentSubcategoryIndex < (currentCategory.categories?.length || 0) - 1) {
+      if (currentSubcategoryIndex < currentCategory.categories.length - 1) {
         setCurrentSubcategoryIndex(currentSubcategoryIndex + 1);
         setCurrentQuestionIndex(0);
       } else if (currentCategoryIndex < questionsData.length - 1) {
@@ -147,23 +119,19 @@ const getTotalQuestions = () => {
   const { categoryType, questions = [] } = currentSubcategory;
   const currentQuestion = questions[currentQuestionIndex];
 
-  const totalQuestions = getTotalQuestions();
+  const totalQuestions = getTotalQuestionsInCurrentCategory();
   const answeredQuestions = getAnsweredQuestions();
 
   return (
     <ScrollView contentContainerStyle={commonStyles.container}>
       <Text style={commonStyles.heading}>{category || "Category"}</Text>
       <Text style={commonStyles.subHeading}>{subheading || "Subheading"}</Text>
-      <Text style={commonStyles.subText}>
-        {categoryType || "Category Type"}
-      </Text>
+      <Text style={commonStyles.subText}>{categoryType || "Category Type"}</Text>
 
       {/* Progress Bar with Percentage and Question Count */}
       <Text style={commonStyles.progressText}>
-  {Math.round(progress)}% - Question {currentQuestionIndex + 1} of {getTotalQuestions()}
-</Text>
-
-
+        {Math.round(progress)}% - Question {answeredQuestions + 1} of {totalQuestions}
+      </Text>
       <View style={commonStyles.progressBarContainer}>
         <Animated.View
           style={[
@@ -173,7 +141,7 @@ const getTotalQuestions = () => {
                 inputRange: [0, 100],
                 outputRange: ["0%", "100%"],
               }),
-              backgroundColor: "#4caf50", // Ensure this is the color of your progress bar
+              backgroundColor: "#4caf50",
             },
           ]}
         />
@@ -212,4 +180,4 @@ const getTotalQuestions = () => {
   );
 };
 
-export default NutritionalEvaluationQuiz;
+export default CanRiskModuleTwo;

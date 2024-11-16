@@ -18,13 +18,13 @@ const App = () => {
       <Stack.Navigator>
         {isSignedIn ? (
           <Stack.Screen 
-            name="Main" 
+            name="Main App" 
             component={MainAppStack} 
-            options={{ headerShown: false }} 
+            options={{ headerShown: false, headerTitle: null}} 
           />
         ) : (
           <>
-          <Stack.Screen name="SplashScreen" component={SplashScreen}/>
+          <Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false, header: false}} />
           <Stack.Screen 
             name="SignInScreen" 
             options={{ headerShown: false }} 

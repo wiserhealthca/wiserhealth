@@ -16,7 +16,6 @@ const InitialEvaluationScreen = ({ navigation }) => {
   return (
     <ScrollView Style={commonStyles.container}>
     <View style={styles.container}>
-      <Text style={styles.title}>Initial Evaluation</Text>
 
       {/* Nutrition Button with Image */}
       <TouchableOpacity
@@ -34,19 +33,7 @@ const InitialEvaluationScreen = ({ navigation }) => {
       </TouchableOpacity>
 
       {/* Sleep Management Button with Image */}
-      <TouchableOpacity
-        style={[
-          styles.componentContainer,
-          selectedComponent === "InitialQuestions" ? styles.selected : null,
-        ]}
-        onPress={() => navigation.navigate("InitialQuestions", "InitialQuestions")}
-      >
-        <Image
-          style={styles.image}
-          source={require("../assets/Images/nutri.avif")}
-        />
-        <Text style={styles.buttonText}>InitialQuestions </Text>
-      </TouchableOpacity>
+ 
       <TouchableOpacity
         style={[
           styles.componentContainer,

@@ -1,116 +1,3 @@
-// import React, { useState } from 'react';
-// import { createStackNavigator } from '@react-navigation/stack';
-// import { View, TouchableOpacity, StyleSheet, Text } from 'react-native';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import HomeScreen from '../Screens/HomeScreen';
-// import UserScreen from '../Screens/UserScreen';
-// import MenuScreen from '../Screens/MenuScreen';
-// import LearningModuleScreen from "../Screens/LearningModuleScreen";
-// import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-// import InitialEvaluationScreen from '../Screens/InitialEvaluationScreen';
-// import NutritionDashboard from '../Screens/NutritionDashboard';
- 
-// const Tab = createBottomTabNavigator();
-// const HomeStack = createStackNavigator();
-// const MainAppStack = () => {
-//   const [isShortcutOpen, setIsShortcutOpen] = useState(false);
-
-//   const toggleShortcut = () => {
-//     setIsShortcutOpen(!isShortcutOpen);
-//   };
-//   const HomeStackScreen = () => (
-//     <HomeStack.Navigator>
-//       {/* <HomeStack.Screen name="MainHome" component={InitialEvaluationScreen} /> */}
-//       <HomeStack.Screen name="NutritionDashboardScreen" component={NutritionDashboard} />
-//       {/* <HomeStack.Screen name="InitialEvaluation" component={InitialEvaluationScreen} /> */}
-//       {/* Add more screens here as needed */}
-
-//     </HomeStack.Navigator>
-//   );
-  
-//   return (
-//     <>
-//       <Tab.Navigator
-//         screenOptions={({ route }) => ({
-//           tabBarIcon: ({ color, size }) => {
-//             let iconName;
-
-//             if (route.name === 'Home') {
-//               iconName = 'home';
-//             } else if (route.name === 'User') {
-//               iconName = 'person';
-//             } else if (route.name === 'Learning') {
-//               iconName = 'school';
-//             } else if (route.name === 'Menu') {
-//               iconName = 'menu';
-//             }
-
-//             return <MaterialIcons name={iconName} size={size} color={color} />;
-//           },
-//           tabBarActiveTintColor: 'green',
-//           tabBarInactiveTintColor: 'gray',
-//         })}
-//       >
-
-//         <Tab.Screen name="Home" component={HomeStackScreen} />
-//         {/* <Tab.Screen name="Home" component={InitialEvaluationScreen} /> */}
-//         <Tab.Screen name="Learning" component={LearningModuleScreen} />
-//         <Tab.Screen
-//           name="Placeholder"
-//           component={View} 
-//           options={{
-//             tabBarLabel: '',
-//             tabBarIcon: () => null, 
-//           }}
-//           listeners={{
-//             tabPress: (e) => {
-//               e.preventDefault(); 
-//               toggleShortcut();
-//             },
-//           }}
-//         />
-//         <Tab.Screen name="User" component={UserScreen} />
-//         <Tab.Screen name="Menu" component={MenuScreen} />
-//       </Tab.Navigator>
-
-//       {/* Floating Action Button */}
-//       <View style={styles.floatingButtonContainer}>
-//         {isShortcutOpen && (
-//           <View style={styles.shortcutContainer}>
-            
-
-//             <TouchableOpacity style={styles.shortcutButton} onPress={() => console.log('Shortcut 1')}>
-//               <MaterialIcons name="fastfood" size={24} color="black" />
-//               <Text style={styles.shortcutText}>Recipes</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity style={styles.shortcutButton} onPress={() => console.log('Shortcut 2')}>
-//               <MaterialIcons name="local-cafe" size={24} color="black" />
-//               <Text style={styles.shortcutText}>Water Intake</Text>
-//             </TouchableOpacity>
-//             <TouchableOpacity style={styles.shortcutButton} onPress={() => console.log('Shortcut 3')}>
-//               <MaterialIcons name="local-dining" size={24} color="black" />
-//               <Text style={styles.shortcutText}>Meals</Text>
-//             </TouchableOpacity>
-//           </View>
-//         )}
-//         <TouchableOpacity
-//           style={styles.floatingButton}
-//           onPress={toggleShortcut}
-//         >
-//           <MaterialIcons
-//             name={isShortcutOpen ? 'close' : 'add'}
-//             size={24}
-//             color="white"
-//           />
-//         </TouchableOpacity>
-//       </View>
-//     </>
-//   );
-// };
-
-// export default MainAppStack;
-
-
 // MainAppStack.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -120,9 +7,17 @@ import LearningModuleScreen from '../Screens/LearningModuleScreen';
 import UserScreen from '../Screens/UserScreen';
 import MenuScreen from '../Screens/MenuScreen';
 import {StyleSheet} from "react-native";
+import { View, Image, Text } from 'react-native';
 
 const Tab = createBottomTabNavigator();
-
+// const CustomHeader = () => (
+//   <View style={styles.headerContainer}>
+//     <Image
+//       source={require('../assets/Images/wiser_logo.jpg')}
+//       style={styles.logo}
+//     />
+//   </View>
+// );
 const MainAppStack = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
@@ -143,11 +38,14 @@ const MainAppStack = () => (
       },
       tabBarActiveTintColor: 'green',
       tabBarInactiveTintColor: 'gray',
+      // headerTitle: () => <CustomHeader/>,
+       headerTitleAlign: 'center',
+       headerStyle: {height: 80},
     })}
   >
-    <Tab.Screen name="Home" component={HomeStackScreen} />
-    <Tab.Screen name="Learning" component={LearningModuleScreen} />
-    <Tab.Screen name="User" component={UserScreen} />
+    <Tab.Screen name="Home" component={HomeStackScreen}  />
+    <Tab.Screen name="Learning" component={LearningModuleScreen}  />
+    <Tab.Screen name="User" component={UserScreen}  />
     <Tab.Screen name="Menu" component={MenuScreen} />
   </Tab.Navigator>
 );
@@ -155,6 +53,16 @@ const MainAppStack = () => (
 export default MainAppStack;
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 40,
+    height: 40,
+    marginRight: 10, // Space between logo and title
+  },
+  
   floatingButtonContainer: {
     position: 'absolute',
     bottom: 30,

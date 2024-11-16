@@ -6,7 +6,7 @@ import {
   ScrollView,
   Animated,
 } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 import questionsData from "./questionsData.json";
 
 const NutritionalEvaluationQuiz = ({ route, navigation }) => {
@@ -205,7 +205,7 @@ import {
   Picker,
   TextInput,
 } from "react-native";
-import commonStyles from "./styles";
+
 
 // const BMIDisplay = ({ route, navigation }) => {
 //   //   const { bmi } = route.params;

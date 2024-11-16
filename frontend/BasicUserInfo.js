@@ -7,7 +7,7 @@ import {
   ScrollView,
   Picker,
 } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 
 const BasicUserInfo = ({ navigation }) => {
   const [age, setAge] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, TouchableOpacity, Alert } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 
 export default function ForgotPasswordScreen({ navigation }) {
   const [email, setEmail] = useState("");

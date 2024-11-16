@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import commonStyles from "./styles"; 
+import commonStyles from "./styles";
 // Import images for each BMI category
 import UnderweightImage from '../assets/Images/underweight.png';
 import NormalImage from '../assets/Images/normal.png';

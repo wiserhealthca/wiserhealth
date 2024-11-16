@@ -15,7 +15,7 @@ export default function AppNavigator() {
 
   return (
     <NavigationContainer>
-    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+    <RootStack.Navigator screenOptions={{ headerShown: false }} >
     {/* <RootStack.Screen name="SplashScreen" component={SplashScreen}/> */}
       <RootStack.Screen name="SplashScreen" component={SplashScreen}/>
       {isSignedIn ? (

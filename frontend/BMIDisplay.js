@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text, View, TouchableOpacity, Alert, ScrollView } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 import questionsData from "./questionsData.json";
 
 export default function BMIDisplay() {

@@ -6,7 +6,7 @@ import {
   ScrollView,
   Animated,
 } from "react-native";
-import commonStyles from "./styles";
+import commonStyles from "./Styles/styles.js";
 import questionsData from "./questionsData.json";
 
 const NutritionalEvaluationQuiz = ({ route, navigation }) => {

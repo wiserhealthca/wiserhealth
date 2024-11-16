@@ -1,46 +1,39 @@
-import React, { useState , useEffect } from "react";
-import { View, Text, TouchableOpacity, ScrollView, TextInput, StyleSheet } from "react-native";
-import commonStyles from "./styles"; 
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, ScrollView, TextInput, StyleSheet, Platform } from "react-native";
+import DateTimePicker from "@react-native-community/datetimepicker";
+// import commonStyles from "./Styles/styles.js";
 import questionsData from "./questionsData.json";
 import { useFocusEffect } from '@react-navigation/native';
-
 
 const InitialQuestions = ({ route, navigation }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState({});
+  const [selectedUnit, setSelectedUnit] = useState("cm"); // Default unit for height
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
-
-  // Reset the index when the screen is focused
   useFocusEffect(
     React.useCallback(() => {
-      setCurrentQuestionIndex(0); 
+      setCurrentQuestionIndex(0);
     }, [])
   );
 
-  // useEffect (() => {
-  //   if(route.params?.reset){
-  //   setCurrentQuestionIndex[0]
-  //   }
-  //   }, [route.params] )
-  // Validation and category checks (same as before)
   if (!Array.isArray(questionsData) || questionsData.length === 0) {
-    return <Text style={commonStyles.errorText}>No categories available</Text>;
+    return <Text style={styles.errorText}>No categories available</Text>;
   }
 
-  const firstCategoryData = questionsData[1];
+  const firstCategoryData = questionsData[0];
   if (!firstCategoryData || !Array.isArray(firstCategoryData.categories) || firstCategoryData.categories.length === 0) {
-    return <Text style={commonStyles.errorText}>No categories available</Text>;
+    return <Text style={styles.errorText}>No categories available</Text>;
   }
 
   const currentCategory = firstCategoryData.categories[0];
   const questions = currentCategory.questions || [];
   if (questions.length === 0) {
-    return <Text style={commonStyles.errorText}>No questions available in this category</Text>;
+    return <Text style={styles.errorText}>No questions available in this category</Text>;
   }
 
   const currentQuestion = questions[currentQuestionIndex];
 
-  // Handle input changes and option selection
   const handleInputChange = (text, id) => {
     setAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -55,60 +48,135 @@ const InitialQuestions = ({ route, navigation }) => {
     }));
   };
 
-  // Handle moving to the next question
+  const handleUnitSelect = (unit) => {
+    setSelectedUnit(unit);
+  };
+
+  const handleDateChange = (event, selectedDate) => {
+    if (Platform.OS !== "web") {
+      setShowDatePicker(false);
+    }
+    if (selectedDate) {
+      setAnswers((prevAnswers) => ({
+        ...prevAnswers,
+        [currentQuestion.id]: selectedDate.toLocaleDateString(),
+      }));
+    }
+  };
+
+  const handleWebDateChange = (event) => {
+    const selectedDate = event.target.value;
+    setAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      [currentQuestion.id]: selectedDate,
+    }));
+  };
+
   const handleNextQuestion = () => {
-    // Validation logic for each question type (dropdown or text input)
     if (!answers[currentQuestion.id]) {
       alert("Please answer the question before proceeding.");
-      return; // Prevent moving to the next question if empty
+      return;
     }
 
-    // Move to the next question if valid
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // After last question, navigate to Review Info
       navigation.navigate("ReviewInitialInfo", { answers });
     }
   };
 
   return (
-    <ScrollView contentContainerStyle={commonStyles.container}>
-      <Text style={commonStyles.heading}>{firstCategoryData.category}</Text>
-      <Text style={commonStyles.subHeading}>{firstCategoryData.subheading}</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      {/* <Text style={styles.heading}>{firstCategoryData.category}</Text> */}
+      {/* <Text style={styles.subHeading}>{firstCategoryData.subheading}</Text> */}
       
       {currentQuestion ? (
         <>
-          <Text style={commonStyles.question}>{currentQuestion.question || currentQuestion.text}</Text>
+          <Text style={styles.question}>{currentQuestion.text}</Text>
           
-          {currentQuestion.type === "dropdown" ? (
+          {currentQuestion.text === "When is your birthday?" ? (
+            <>
+              {Platform.OS === "web" ? (
+                <TextInput
+                  style={styles.dateInput}
+                  type="date"
+                  value={answers[currentQuestion.id] || ""}
+                  onChange={handleWebDateChange}
+                />
+              ) : (
+                <>
+                  <TouchableOpacity
+                    style={styles.dateButton}
+                    onPress={() => setShowDatePicker(true)}
+                  >
+                    <Text style={styles.dateText}>
+                      {answers[currentQuestion.id] || "Select Date"}
+                    </Text>
+                  </TouchableOpacity>
+                  
+                  {showDatePicker && (
+                    <DateTimePicker
+                      value={new Date()}
+                      mode="date"
+                      display={Platform.OS === "ios" ? "spinner" : "default"}
+                      onChange={handleDateChange}
+                    />
+                  )}
+                </>
+              )}
+            </>
+          ) : currentQuestion.type === "dropdown" ? (
             currentQuestion.options.map((option, index) => (
               <TouchableOpacity
                 key={index}
                 style={[
-                  commonStyles.optionButton,
-                  answers[currentQuestion.id] === option && commonStyles.selectedOption,
+                  styles.optionButton,
+                  answers[currentQuestion.id] === option && styles.selectedOption,
                 ]}
                 onPress={() => handleOptionSelect(currentQuestion.id, option)}
               >
-                <Text style={commonStyles.optionText}>{option}</Text>
+                <Text style={styles.optionText}>{option}</Text>
               </TouchableOpacity>
             ))
+          ) : currentQuestion.text === "Your height" ? (
+            <View style={styles.inputWithUnits}>
+              <TextInput
+                style={styles.input}
+                placeholder={currentQuestion.placeholder}
+                keyboardType="numeric"
+                onChangeText={(text) => handleInputChange(text, currentQuestion.id)}
+                value={answers[currentQuestion.id] || ""}
+              />
+              <View style={styles.unitContainer}>
+                {currentQuestion.unitOptions.map((unit) => (
+                  <TouchableOpacity
+                    key={unit}
+                    style={[
+                      styles.unitOption,
+                      selectedUnit === unit && styles.selectedUnit,
+                    ]}
+                    onPress={() => handleUnitSelect(unit)}
+                  >
+                    <Text style={styles.unitText}>{unit}</Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            </View>
           ) : (
             <TextInput
-              style={commonStyles.input}
+              style={styles.input}
               placeholder={currentQuestion.placeholder}
               keyboardType={currentQuestion.type === "number" ? "numeric" : "default"}
               onChangeText={(text) => handleInputChange(text, currentQuestion.id)}
-              value={answers[currentQuestion.id] || ''}
+              value={answers[currentQuestion.id] || ""}
             />
           )}
 
           <TouchableOpacity
-            style={commonStyles.modernButton}
+            style={styles.nextButton}
             onPress={handleNextQuestion}
           >
-            <Text style={commonStyles.buttonText}>Next</Text>
+            <Text style={styles.buttonText}>Next</Text>
           </TouchableOpacity>
         </>
       ) : (
@@ -119,45 +187,91 @@ const InitialQuestions = ({ route, navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  // Optional styles for modern appearance
-  input: {
-    backgroundColor: "#f0f0f0",
+  container: {
+    padding: 20,
+    backgroundColor: "#f9f9f9",
+  },
+  heading: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  subHeading: {
+    fontSize: 18,
+    color: "#666",
+    marginBottom: 20,
+  },
+  question: {
+    fontSize: 18,
+    color: "#333",
+    marginBottom: 12,
+  },
+  dateButton: {
     padding: 10,
+    backgroundColor: "#e0e0e0",
     borderRadius: 8,
+    alignItems: "center",
     marginBottom: 15,
   },
-  optionButton: {
+  dateText: {
+    fontSize: 16,
+  },
+  dateInput: {
+    backgroundColor: "#ffffff",
+    padding: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    marginBottom: 15,
+  },
+  input: {
+    backgroundColor: "#ffffff",
+    padding: 10,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: "#ddd",
+    marginBottom: 15,
+  },
+  inputWithUnits: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  unitContainer: {
+    flexDirection: "row",
+    marginLeft: 10,
+  },
+  unitOption: {
+    padding: 8,
+    borderRadius: 8,
     backgroundColor: "#e0e0e0",
+    marginHorizontal: 5,
+  },
+  selectedUnit: {
+    backgroundColor: "#4caf50",
+  },
+  unitText: {
+    color: "#fff",
+  },
+  optionButton: {
     padding: 12,
     borderRadius: 8,
+    backgroundColor: "#e0e0e0",
     marginBottom: 8,
     alignItems: "center",
   },
   selectedOption: {
-    backgroundColor: "#4caf50", // Selected option highlighted in green
+    backgroundColor: "#4caf50",
   },
-  question: {
-    fontSize: 18,
-    marginBottom: 12,
-  },
-  modernButton: {
-    backgroundColor: "#008CBA",
+  nextButton: {
     padding: 12,
     borderRadius: 8,
+    backgroundColor: "#008CBA",
     marginTop: 15,
   },
   buttonText: {
     color: "#fff",
     fontSize: 18,
     textAlign: "center",
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: "bold",
-  },
-  subHeading: {
-    fontSize: 18,
-    marginBottom: 20,
   },
   errorText: {
     color: "red",

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
-import commonStyles from "../styles"; 
+import commonStyles from "./styles"; 
 import questionsData from "../questionsData.json"; 
 
 const ResultsScreen = ({ route, navigation }) => {
