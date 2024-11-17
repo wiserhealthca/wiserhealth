@@ -1,0 +1,75 @@
+{
+    "health_conditions": {
+      "diagnosed_conditions": [
+        {
+          "condition": "Type 2 Diabetes",
+          "follow_up": "Do you currently use insulin?",
+          "options": ["Yes", "No"]
+        },
+        { "condition": "Prediabetes" },
+        { "condition": "Insulin Resistance" },
+        { "condition": "Gestational Diabetes" },
+        { "condition": "Obesity" },
+        { "condition": "I haven’t been tested / I’m not sure" },
+        { "condition": "None of the above" }
+      ],
+      "current_conditions": [
+        { "condition": "High Blood Pressure" },
+        { "condition": "High Cholesterol" },
+        { "condition": "Nonalcoholic Fatty Liver Disease" },
+        { "condition": "High Triglyceride Levels" },
+        { "condition": "None of the Above" }
+      ]
+    },
+    "meal_preferences": {
+      "meat": [
+        "Beef", "Bison", "Chicken", "Fish", "Game Meat", "Lamb", "Pork", "Shrimp", "Turkey", "None"
+      ],
+      "fish": [
+        "Arctic Char", "Cod", "Cold Fish", "Haddock", "Halibut", "Mackerel", 
+        "Northern Pike", "Perch", "Salmon", "Tilapia", "Trout", "Tuna Fish", "Walleye (Pickerel)", "None"
+      ],
+      "plant_based": [
+        "Beans", "Chickpeas (Garbanzo Beans)", "Edamame", "Lentils", "Oats", 
+        "Pea Protein", "Plant-Based Meat Alternatives", "Quinoa", "Nuts", "Seeds", 
+        "Seitan (Wheat Gluten)", "Tempeh", "Textured Vegetable Protein (TVP)", "Tofu and Tempeh", "None"
+      ],
+      "healthy_carbs": [
+        "Amaranth", "Apples", "Barley", "Berries", "Buckwheat", "Bulgur", "Millet", 
+        "Oats", "Potato", "Pumpkin", "Quinoa", "Rolled Oats", "Sweet Potato", 
+        "Whole Grain Pasta", "Whole Grain Rice (Brown Rice)", "Whole Wheat Bread", "None"
+      ],
+      "fruits": [
+        "Apple", "Apricot", "Berries", "Cherries", "Grapes", "Kiwi", "Melon", 
+        "Orange", "Peach", "Pears", "Plums", "Raspberries", "Strawberries", "Watermelon", "None"
+      ],
+      "vegetables": [
+        "Avocado", "Beets", "Bell Peppers", "Broccoli", "Brussels Sprouts", "Cabbage", 
+        "Carrots", "Cauliflower", "Celery", "Cucumber", "Green Beans", "Kale", 
+        "Mushrooms", "Olives", "Onions", "Spinach", "Squash", "Tomatoes", "Zucchini", "None"
+      ]
+    },
+    "allergies": {
+      "food_allergies": [
+        "Peanuts", "Tree Nuts (almonds, walnuts, cashews, pistachios, and hazelnuts)", 
+        "Milk", "Eggs", "Wheat", "Soy (Commonly found in processed foods)", 
+        "Fish", "Shellfish (Includes shrimp, lobster, and crab)"
+      ],
+      "fruit_allergies": [
+        "Kiwi", "Strawberries", "Bananas", "Oranges and Other Citrus Fruits", 
+        "Apples (Often associated with oral allergy syndrome)", "Peaches (cause itching and swelling in the mouth)"
+      ]
+    },
+    "lifestyle": {
+      "physical_activity": [
+        "Highly Active", "Active", "Moderately Active", "Slightly Active", "Inactive (Sedentary)"
+      ],
+      "sleep": [
+        "More than 9 hours", "Normal (8-9 hours)", "Less than 8 hours", "None"
+      ],
+      "stress": [
+        "Always", "Often", "Sometimes", "Never"
+      ]
+    }
+  }
+  

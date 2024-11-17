@@ -185,7 +185,7 @@
       ]
     },
     {
-      "category": "Type 2 Diatebetes EValtion",
+      "category": "Type 2 Diatebetes EValuation",
       "subheading": "Type 2 Quiz",
       "categories": [
         {
@@ -220,7 +220,7 @@
         "categoryType": "Physical Activity and Diet",
         "questions": [
           {
-            "text": "Do you usually do some physical activity such as brisk walking for at least 30 minutes each day? This activity can be done while at work or at home.",
+            "text": "Have you been diagnosed with any of the following conditions?",
             "options": [
               { "answer": "Yes", "score": 0 },
               { "answer": "No", "score": 1 }

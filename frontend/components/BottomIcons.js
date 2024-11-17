@@ -8,7 +8,7 @@ const BottomIcons = () => {
 
   return (
     <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, backgroundColor: '#fff' }}>
-      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity onPress={() => navigation.navigate('Homeed')}>
         <Text>Home</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('Profile')}>

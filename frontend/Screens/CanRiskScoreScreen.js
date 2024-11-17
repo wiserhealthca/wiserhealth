@@ -35,7 +35,7 @@ const CanRiskScoreScreen = ({ route, navigation }) => {
           <TouchableOpacity style={commonStyles.retakeButton} onPress={() => navigation.navigate('CanRiskQuiz')}>
             <Text style={commonStyles.retakeButtonText}>Retake Quiz</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={commonStyles.retakeButton} onPress={() => navigation.navigate('CanRiskModuleTwo')}>
+          <TouchableOpacity style={commonStyles.retakeButton} onPress={() => navigation.navigate('Type2ModuleTwo')}>
             <Text style={commonStyles.retakeButtonText}>Take Module2 Quiz</Text>
           </TouchableOpacity>
         </ScrollView>

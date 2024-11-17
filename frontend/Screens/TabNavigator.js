@@ -34,7 +34,7 @@ export default function TabNavigator() {
         tabBarInactiveTintColor: 'gray', 
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="HomeScreen" component={HomeScreen} />
       <Tab.Screen name="Learning" component={LearningModuleScreen} />
       <Tab.Screen name="User" component={UserScreen} />
       <Tab.Screen name="Cart" component={CartScreen} />

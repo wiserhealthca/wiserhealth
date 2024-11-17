@@ -13,6 +13,7 @@ import ResultsScreen from "../Screens/ResultsScreen";
 import CanRiskScoreScreen from "../Screens/CanRiskScoreScreen";
 import HomeScreen from '../Screens/HomeScreen';
 import CanRiskModuleTwo from "../Screens/CanRiskModuleTwo";
+import Type2ModuleTwo from "../Screens/Type2ModuleTwo";
 
 
 const HomeStack = createStackNavigator();
@@ -32,6 +33,7 @@ const HomeStackScreen = () => (
      <HomeStack.Screen name="CanRiskScoreScreen" component={CanRiskScoreScreen} />
      <HomeStack.Screen name="CanRiskModuleTwo" component={CanRiskModuleTwo} />
     {/* Add more screens here if needed */}
+    <HomeStack.Screen name="Type2ModuleTwo" component={Type2ModuleTwo} />
   </HomeStack.Navigator>
 );
 
