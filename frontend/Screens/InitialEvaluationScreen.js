@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import commonStyles from "./styles"; // Import your common styles
+import commonStyles from "./styles"; 
 
 const InitialEvaluationScreen = ({ navigation }) => {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -17,7 +17,6 @@ const InitialEvaluationScreen = ({ navigation }) => {
     <ScrollView Style={commonStyles.container}>
     <View style={styles.container}>
 
-      {/* Nutrition Button with Image */}
       <TouchableOpacity
         style={[
           styles.componentContainer,

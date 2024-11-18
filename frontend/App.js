@@ -1,13 +1,12 @@
-// Your main app file, e.g., App.js or Navigation.js
 import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import SignInScreen from './Screens/SignInScreen'; // Adjust your path as necessary
-import MainAppStack from './Navigation/MainAppStack'; // Your main tab navigator
-import InitialEvaluationScreen from './Screens/InitialEvaluationScreen';
-import NutritionDashboard from "./Screens/NutritionDashboard";
+import SignInScreen from './Screens/SignInScreen'; 
 import SplashScreen from './Navigation/SplashScreen';
-import SignUpScreen from './Screens/SignUpScreen';
+import SignUpScreen from './Screens/SignUpScreen'
+import HomeStackScreen from './Navigation/HomeStackScreen';
+import MainAppStack from "./Navigation/MainAppStack";
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -16,26 +15,26 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {isSignedIn ? (
-          <Stack.Screen 
-            name="Main App" 
+      {isSignedIn ? (
+          <Stack.Screen
+            name="MainAppStack"
             component={MainAppStack} 
-            options={{ headerShown: false, headerTitle: null}} 
+            options={{ headerShown: false }}
           />
         ) : (
           <>
-          <Stack.Screen name="SplashScreen" component={SplashScreen} options={{headerShown: false, header: false}} />
-          <Stack.Screen 
-            name="SignInScreen" 
-            options={{ headerShown: false }} 
-          >
-            {props => <SignInScreen {...props} setIsSignedIn={setIsSignedIn} />}
-          </Stack.Screen>
-          <Stack.Screen name="SignUpScreen" component={SignUpScreen}/>
+            <Stack.Screen
+              name="SplashScreen"
+              component={SplashScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen name="SignInScreen">
+              {props => <SignInScreen {...props} setIsSignedIn={setIsSignedIn} />}
+            </Stack.Screen>
+            <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
           </>
         )}
       </Stack.Navigator>
-      
     </NavigationContainer>
   );
 };

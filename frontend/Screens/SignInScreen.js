@@ -66,20 +66,17 @@ export default function SignInScreen({ navigation , setIsSignedIn}) {
 
   const handleSignIn = () => {
     setIsFormSubmitted(true);
-
     const errors = validateForm();
-
-    // If no errors, proceed with sign-in
+  
     if (Object.keys(errors).length === 0) {
-      // console.log("Sign In:", { email, password });
-      // console.log("Form submitted successfully!");
-      setIsSignedIn(true);
-      navigation.navigate("HomeScreen");
+      setIsSignedIn(true);  // Set signed-in state
+      // navigation.navigate('MainAppStack');  // This should match the name registered in App.js
     } else {
       console.log("Form has errors!", errors);
     }
   };
-
+  
+  
   return (
     <View style={commonStyles.container}>
       <Text style={commonStyles.heading}>Welcome Back!</Text>
@@ -128,7 +125,7 @@ export default function SignInScreen({ navigation , setIsSignedIn}) {
       {/* Minimalistic Sign In Button */}
       <TouchableOpacity
         style={commonStyles.signInButton}
-        onPress={handleSignIn}
+         onPress={handleSignIn}
       >
         <Text style={commonStyles.signInButtonText}>Sign In</Text>
       </TouchableOpacity>

@@ -1,12 +1,12 @@
 // import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
-export default function SplashScreen({ navigation }) {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       {/* Logo */}
       <Image
-        source={require("../assets/Images/banner_img.jpg")} // Update the path to your logo image
+        source={require("../assets/Images/banner_img.jpg")} 
         style={styles.logo}
       />
 
@@ -41,8 +41,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   logo: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     marginBottom: 30,
   },
   headline: {

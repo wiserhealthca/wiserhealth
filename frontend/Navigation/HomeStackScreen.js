@@ -19,8 +19,8 @@ import Type2ModuleTwo from "../Screens/Type2ModuleTwo";
 const HomeStack = createStackNavigator();
 
 const HomeStackScreen = () => (
-  <HomeStack.Navigator initialRouteName="HomeScreen" options={{headerShown: false}}>
-   <HomeStack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false}} />
+  <HomeStack.Navigator>
+      <HomeStack.Screen name="HomeScreen" initialRouteName="HomeScreen" component={HomeScreen}  />
     <HomeStack.Screen name="InitialEvaluation" component={InitialEvaluationScreen} />
     <HomeStack.Screen name="NutritionDashboard" component={NutritionDashboard} />
     <HomeStack.Screen name="NutritionalEvaluationQuiz" component={NutritionalEvaluationQuiz} />
@@ -32,8 +32,8 @@ const HomeStackScreen = () => (
      <HomeStack.Screen name="ResultsScreen" component={ResultsScreen} />
      <HomeStack.Screen name="CanRiskScoreScreen" component={CanRiskScoreScreen} />
      <HomeStack.Screen name="CanRiskModuleTwo" component={CanRiskModuleTwo} />
-    {/* Add more screens here if needed */}
     <HomeStack.Screen name="Type2ModuleTwo" component={Type2ModuleTwo} />
+     {/* Add more screens here if needed */}
   </HomeStack.Navigator>
 );
 
