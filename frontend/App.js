@@ -16,7 +16,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-
       {isSignedIn ? (
           <Stack.Screen
             name="MainAppStack"
