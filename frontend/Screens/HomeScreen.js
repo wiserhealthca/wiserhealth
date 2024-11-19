@@ -1,46 +1,57 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+// import React from "react";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
-export default function Home({ navigation }) {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
+      {/* Logo */}
       <Image
-        source={require("../assets/Images/banner_img.jpg")} // Update the path to your image
-        style={styles.image}
+        source={require("../assets/Images/banner_img.jpg")} 
+        style={styles.logo}
       />
-   
+
+      {/* Headline Text */}
+      {/* <Text style={styles.headline}>
+        <Text style={styles.highlight}>Healthy</Text> Eating.
+        {"\n"}Simplified.
+      </Text> */}
+
+      {/* Get Started Button */}
       <Text style={styles.description}>
         Welcome to WiserHealth! Your journey to a healthier life starts here.
         Online health and wellness tests can give you a quick snapshot of your
         health status and help you manage it through lifestyle medicine.
       </Text>
       <TouchableOpacity
-        style={styles.modernButton}
-        onPress={() => navigation.navigate("InitialEvaluation")}
+        style={styles.getStartedButton}
+        onPress={() => navigation.navigate("InitialQuestions")}
       >
-        <Text style={styles.buttonText}>Next</Text>
+        <Text style={styles.buttonText}>Get Started</Text>
       </TouchableOpacity>
     </View>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+    flex: 1,
+    // backgroundColor: "#EEF8D3", // Light greenish background
+    alignItems: "center",
     justifyContent: "center",
     padding: 20,
-    backgroundColor: "#fff",
   },
-  image: {
-    width: "100%", 
-    height: 200, 
-    borderRadius: 10, 
-    marginBottom: 20, 
+  logo: {
+    width: 200,
+    height: 200,
+    marginBottom: 30,
+  },
+  headline: {
+    fontSize: 32,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginVertical: 20,
+    color: "#333",
+    lineHeight: 40,
   },
   description: {
     fontSize: 16,
@@ -58,23 +69,27 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 2, 
   },
-  modernButton: {
-    backgroundColor: "#6200EE", 
-    borderRadius: 30, 
+  highlight: {
+    color: "#000", // Highlight color for "Healthy"
+    backgroundColor: "#CBEA7B", // Light background for highlight
+    paddingHorizontal: 5,
+    borderRadius: 5,
+  },
+  getStartedButton: {
+    backgroundColor: "#468671", // Button color
+    borderRadius: 50,
     paddingVertical: 15,
     paddingHorizontal: 40,
-    alignItems: "center",
-    shadowColor: "#000", 
+    marginTop: 30,
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 5, // For Android shadow
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
   },
   buttonText: {
-    color: "#fff", // White text color
-    fontSize: 16,
-    fontWeight: "bold",
-    textTransform: "uppercase", // Uppercase text for modern feel
-    letterSpacing: 1.5, // Slightly spaced letters for readability
+    color: "#262626",
+    fontSize: 18,
+    fontWeight: "600",
   },
 });

@@ -1,16 +1,3 @@
-// import React from "react";
-// import { Text } from "react-native";
-// import { View } from "react-native";
-
-// export default function Types2Diabetes() {
-//   return (
-//     <View>
-//       <Text></Text>
-//        Canrisk 
-
-//     </View>
-//   );
-// }
 
 import React from "react";
 import {
@@ -21,7 +8,11 @@ import {
   ImageBackground,
 } from "react-native";
 
-export default function NutritionDashboard({ navigation }) {
+
+import commonStyles from "./styles";
+
+export default function Types2Diabetes({ navigation }) {
+
   return (
     <ImageBackground
       source={require("../assets/Images/canrisk-logo.png")} // Use your background image
@@ -34,10 +25,12 @@ export default function NutritionDashboard({ navigation }) {
         </Text>
 
         <TouchableOpacity
-          style={styles.modernButton}
+
+          style={commonStyles.modernButton}
           onPress={() => navigation.navigate("CanRiskQuiz")}
         >
-          <Text style={styles.buttonText}>Start Quiz</Text>
+          <Text style={commonStyles.buttonText}>Start Quiz</Text>
+
         </TouchableOpacity>
 
         {/* Decorative Element: Circular Accent */}
@@ -76,6 +69,7 @@ const styles = StyleSheet.create({
     color: "#555",
     marginBottom: 40,
   },
+<<<<<<< HEAD
   modernButton: {
     backgroundColor: "#4CAF50", // Bright green color
     borderRadius: 30,
@@ -103,4 +97,7 @@ const styles = StyleSheet.create({
     marginLeft: -50, // Center the circle
     opacity: 0.5, // Slightly transparent
   },
+=======
+ 
+>>>>>>> backup-feature-branch
 });

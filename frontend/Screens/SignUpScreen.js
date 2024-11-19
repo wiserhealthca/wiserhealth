@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, Image, TextInput, TouchableOpacity } from "react-native";
 import axios from "axios";
-import commonStyles from "./styles";
+import commonStyles from "./styles";;
+
 
 export default function SignUpScreen({ navigation }) {
   const [username, setUserName] = useState("");
@@ -238,7 +239,11 @@ export default function SignUpScreen({ navigation }) {
       <View style={commonStyles.footer}>
         <Text>Already have an account?</Text>
         <TouchableOpacity
+<<<<<<< HEAD
           onPress={() => navigation.navigate("SignIn")}
+=======
+          onPress={() => navigation.navigate("SignInScreen")}
+>>>>>>> backup-feature-branch
           style={commonStyles.signInButton}
         >
           <Text style={commonStyles.signInButtonText}> Sign In </Text>

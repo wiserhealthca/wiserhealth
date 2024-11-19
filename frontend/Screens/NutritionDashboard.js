@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-
+import commonStyles from "./styles";
 export default function NutritionDashboard({ navigation }) {
   return (
     <ImageBackground
@@ -20,10 +20,10 @@ export default function NutritionDashboard({ navigation }) {
         </Text>
 
         <TouchableOpacity
-          style={styles.modernButton}
+          style={commonStyles.modernButton}
           onPress={() => navigation.navigate("NutritionalEvaluationQuiz")}
         >
-          <Text style={styles.buttonText}>Start Quiz</Text>
+          <Text style={commonStyles.buttonText}>Start Quiz</Text>
         </TouchableOpacity>
 
         {/* Decorative Element: Circular Accent */}
@@ -61,32 +61,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#555",
     marginBottom: 40,
-  },
-  modernButton: {
-    backgroundColor: "#4CAF50", // Bright green color
-    borderRadius: 30,
-    paddingVertical: 15,
-    paddingHorizontal: 40,
-    alignItems: "center",
-    borderWidth: 2,
-    borderColor: "#2E7D32", // Darker green border
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: 1.5,
-  },
-  circleAccent: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: "rgba(76, 175, 80, 0.5)", // Light green accent color
-    position: "absolute",
-    bottom: -50, // Position it below the card
-    left: "50%",
-    marginLeft: -50, // Center the circle
-    opacity: 0.5, // Slightly transparent
-  },
+  }
 });

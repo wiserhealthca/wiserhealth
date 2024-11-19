@@ -1,4 +1,3 @@
-// styles.js
 import { StyleSheet } from "react-native";
 
 const commonStyles = StyleSheet.create({
@@ -14,6 +13,7 @@ const commonStyles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
   },
+ 
   subHeading: {
     fontSize: 16,
     textAlign: "center",
@@ -54,7 +54,7 @@ const commonStyles = StyleSheet.create({
     marginBottom: 12,
   },
   modernButton: {
-    backgroundColor: "#6200EE", // Primary color
+    backgroundColor: "#468671", // Primary color
     borderRadius: 30, // Rounded corners for a modern look
     paddingVertical: 15,
     paddingHorizontal: 40,
@@ -95,10 +95,10 @@ const commonStyles = StyleSheet.create({
 
   input: {
     height: 50,
-    borderColor: "#DCDCDC",
-    borderWidth: 1,
+    // borderColor: "#DCDCDC",
+    // borderWidth: 1,
     marginBottom: 15,
-    paddingHorizontal: 15,
+    // paddingHorizontal: 15,
     borderRadius: 8,
     backgroundColor: "#F7F7F7",
     fontSize: 16,
@@ -106,10 +106,10 @@ const commonStyles = StyleSheet.create({
   passwordContainer: {
     flexDirection: "row",
     alignItems: "center",
-    borderColor: "#DCDCDC",
-    borderWidth: 1,
+    // borderColor: "#DCDCDC",
+    // borderWidth: 1,
     marginBottom: 15,
-    paddingHorizontal: 15,
+    // paddingHorizontal: 15,
     borderRadius: 8,
     backgroundColor: "#F7F7F7",
   },

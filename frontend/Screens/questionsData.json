@@ -1,4 +1,66 @@
 [
+  {
+    "category": "familyHistory",
+    "subheading": "Family Info",
+    "categories": [
+      {
+        "categoryType": "familyHistory",
+        "questions": [
+          {
+            "id": 1,
+            "text": "How do you identify?",
+            "type": "dropdown",
+            "options": ["Male", "Female", "Non-binary"]
+          },
+          {
+            "id": 2,
+            "text": "When is your birthday?",
+            "type": "date",
+            "placeholder": "Select on calendar"
+          },
+          {
+            "id": 3,
+            "text": "Your height",
+            "type": "number",
+            "unitOptions": ["cm", "in"],
+            "placeholder": "Enter height"
+          },
+          {
+            "id": 4,
+            "text": "Your weight",
+            "type": "number",
+            "unitOptions": ["kg", "lbs"],
+            "placeholder": "Enter weight"
+          },
+          {
+            "id": 5,
+            "text": "Preferred name",
+            "type": "text",
+            "placeholder": "Enter your preferred name"
+          },
+          {
+            "id": 6,
+            "text": "What is your work schedule?",
+            "type": "dropdown",
+            "options": ["Flexible", "Nine to five", "Strict working hours", "Between jobs or unemployed", "Shift work"]
+          },
+          {
+            "id": 7,
+            "text": "What is your education level?",
+            "type": "dropdown",
+            "options": [
+              "Some High School",
+              "High School Diploma or Equivalent",
+              "College Diploma or Associate Degree",
+              "Bachelor’s Degree",
+              "Master’s Degree",
+              "Doctoral Degree (PhD)"
+            ]
+          }   
+    ]
+    }
+  ]
+}, 
     {
       "category": "Nutritional Evaluation",
       "subheading": "Nutrient Deficiency Quiz",
@@ -123,50 +185,33 @@
       ]
     },
     {
-      "category": "familyHistory",
-      "subheading": "Family Info",
+      "category": "Type 2 Diatebetes EValuation",
+      "subheading": "Type 2 Quiz",
       "categories": [
         {
-          "categoryType": "familyHistory",
+          "categoryType": "(General Health and Energy Levels)",
           "questions": [
             {
-              "id": 1,
-              "text": "Gender",
-              "type": "dropdown",
-              "options": ["Male", "Female", "Other"]
+              "text": "Do you often feel tired or fatigued, even after a good night’s sleep?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
             },
             {
-              "id": 2,
-              "question": "Age",
-              "type": "number",
-              "placeholder": "Enter age in years"
+              "text": "Do you experience frequent headaches or migraines?",
+              "options": ["Yes, often", "Occasionally", "Rarely or never"]
             },
             {
-              "id": 3,
-              "text": "Weight",
-              "type": "number",
-              "unit": "kg",
-              "placeholder": "Enter weight"
+              "text": "Do you have difficulty concentrating or experience brain fog?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
             },
             {
-              "id": 4,
-              "text": "Height",
-              "type": "number",
-              "unit": "cm",
-              "placeholder": "Enter height"
-            },
-            {
-              "id": 5,
-              "text": "Waist Circumference",
-              "type": "number",
-              "unit": "cm",
-              "placeholder": "Enter waist circumference"
+              "text": "Do you feel short of breath or have a rapid heartbeat, especially during mild physical activity?",
+              "options": ["Yes, frequently", "Sometimes", "Rarely or never"]
             }
-            
+          ]
+        }
       ]
-      }
-    ]
-  }, 
+      },
+
   {
     "category": "Diabetes Risk Assessment",
     "subheading": "Risk Factors for Developing Diabetes",
@@ -175,7 +220,7 @@
         "categoryType": "Physical Activity and Diet",
         "questions": [
           {
-            "text": "Do you usually do some physical activity such as brisk walking for at least 30 minutes each day? This activity can be done while at work or at home.",
+            "text": "Have you been diagnosed with any of the following conditions?",
             "options": [
               { "answer": "Yes", "score": 0 },
               { "answer": "No", "score": 1 }

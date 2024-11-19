@@ -74,7 +74,7 @@ export default function SignInScreen({ navigation , setIsSignedIn}) {
       // console.log("Sign In:", { email, password });
       // console.log("Form submitted successfully!");
       setIsSignedIn(true);
-      navigation.navigate("InitialEvaluationScreen");
+      // navigation.navigate("InitialEvaluationScreen");
     } else {
       console.log("Form has errors!", errors);
     }
