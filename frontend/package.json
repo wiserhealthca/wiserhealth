@@ -2,15 +2,14 @@
   "name": "frontend",
   "version": "1.0.0",
   "main": "expo/AppEntry.js",
-
- "scripts": {
+  "scripts": {
   "start": "expo start",
   "android": "expo start --android",
   "ios": "expo start --ios",
   "web": "expo start --web",
-  "build": "expo export",  
-  "build:android": "expo build:android",
-  "build:ios": "expo build:ios"
+  "build": "npx expo build",
+  "build:android": "npx expo build:android",
+  "build:ios": "npx expo build:ios"
 },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.0",
@@ -36,11 +35,11 @@
     "react-native-screens": "~4.1.0",
     "react-native-vector-icons": "^10.2.0",
     "react-native-web": "~0.19.13",
-    "webpack": "^5.0.0"
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2"
-
   },
   "private": true
 }
