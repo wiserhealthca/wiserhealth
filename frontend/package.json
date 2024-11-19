@@ -7,7 +7,8 @@
   "android": "expo start --android",
   "ios": "expo start --ios",
   "web": "expo start --web",
-  "build": "npx expo build",
+   "build": "expo build",
+  "build:web": "npx expo export:web",
   "build:android": "npx expo build:android",
   "build:ios": "npx expo build:ios"
 },
