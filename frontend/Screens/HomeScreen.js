@@ -10,13 +10,6 @@ export default function HomeScreen({ navigation }) {
         style={styles.logo}
       />
 
-      {/* Headline Text */}
-      {/* <Text style={styles.headline}>
-        <Text style={styles.highlight}>Healthy</Text> Eating.
-        {"\n"}Simplified.
-      </Text> */}
-
-      {/* Get Started Button */}
       <Text style={styles.description}>
         Welcome to WiserHealth! Your journey to a healthier life starts here.
         Online health and wellness tests can give you a quick snapshot of your

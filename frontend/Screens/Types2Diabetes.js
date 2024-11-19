@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
     color: "#555",
     marginBottom: 40,
   },
-<<<<<<< HEAD
   modernButton: {
     backgroundColor: "#4CAF50", // Bright green color
     borderRadius: 30,
@@ -97,7 +96,5 @@ const styles = StyleSheet.create({
     marginLeft: -50, // Center the circle
     opacity: 0.5, // Slightly transparent
   },
-=======
- 
->>>>>>> backup-feature-branch
+
 });

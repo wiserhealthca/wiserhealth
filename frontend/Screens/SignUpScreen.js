@@ -239,11 +239,7 @@ export default function SignUpScreen({ navigation }) {
       <View style={commonStyles.footer}>
         <Text>Already have an account?</Text>
         <TouchableOpacity
-<<<<<<< HEAD
-          onPress={() => navigation.navigate("SignIn")}
-=======
           onPress={() => navigation.navigate("SignInScreen")}
->>>>>>> backup-feature-branch
           style={commonStyles.signInButton}
         >
           <Text style={commonStyles.signInButtonText}> Sign In </Text>
